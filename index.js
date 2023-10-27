@@ -3,7 +3,12 @@ const app = express();
 
 const morgan = require('morgan');
 
+//DB connection
+const createConnection = require('./database/connection');
+createConnection();
+
 //MiddleWares
+
 app.use(express.json());
 app.use(morgan('tiny'));
 
