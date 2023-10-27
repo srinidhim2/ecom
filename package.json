@@ -1,19 +1,25 @@
 {
-  "name": "ecom",
-  "version": "1.0.0",
-  "description": "Ecommerce API",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/srinidhim2/ecom.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/srinidhim2/ecom/issues"
-  },
-  "homepage": "https://github.com/srinidhim2/ecom#readme"
+    "name": "ecom",
+    "version": "1.0.0",
+    "description": "Ecommerce API",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/srinidhim2/ecom.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/srinidhim2/ecom/issues"
+    },
+    "homepage": "https://github.com/srinidhim2/ecom#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "joi": "^17.11.0",
+        "mongoose": "^7.6.3",
+        "morgan": "^1.10.0"
+    }
 }
