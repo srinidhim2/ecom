@@ -1,8 +1,7 @@
 const express = require('express');
 const categoryRouter = express.Router();
+const { getCategories } = require('../controller/category-controller');
 
-categoryRouter.get('', (req, res) => {
-    res.json({ "message": "CATEGORY API" })
-})
+categoryRouter.get('', getCategories);
 
 module.exports = { categoryRouter };

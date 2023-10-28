@@ -1,8 +1,8 @@
 const express = require('express');
 const userRouter = express.Router();
+const { getUsers } = require('../controller/user-controller');
+const { get } = require('mongoose');
 
-userRouter.get('', (req, res) => {
-    res.json({ "message": "USER API" })
-})
+userRouter.get('', getUsers);
 
 module.exports = { userRouter };

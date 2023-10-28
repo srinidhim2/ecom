@@ -6,6 +6,10 @@ const userSchema = new Schema({
         type: String,
         required: ture
     },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
     email: {
         type: String,
         required: ture,
