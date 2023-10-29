@@ -3,7 +3,7 @@ const userRouter = express.Router();
 const { getUsers, saveUser, loginUser, updateUser, updateUserById } = require('../controller/user-controller');
 const { userAuthMiddleware, adminAuthMiddleware } = require('../middlewares/user-auth-middleware');
 
-userRouter.get('', getUsers);
+userRouter.get('', adminAuthMiddleware, getUsers);
 userRouter.post('', saveUser);
 userRouter.put('', userAuthMiddleware, updateUser);
 

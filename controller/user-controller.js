@@ -6,8 +6,9 @@ const jwt = require('jsonwebtoken');
 const key = "123";
 const { userAuth } = require('../middlewares/user-auth-middleware');
 
-function getUsers(req, res, next) {
-    res.json({ "message": "USERS API" })
+async function getUsers(req, res, next) {
+    const users = await User.find();
+    res.json({ users });
 }
 
 function validateUserForReistration(user) {
