@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     name: {
         type: String,
-        required: ture
+        required: true
     },
     isAdmin: {
         type: Boolean,
@@ -12,12 +12,12 @@ const userSchema = new Schema({
     },
     email: {
         type: String,
-        required: ture,
+        required: true,
         unique: true
     },
     password: {
         type: String,
-        required: ture
+        required: true
     },
     active: { type: Boolean, required: true, default: false },
     phone: { type: String }
@@ -27,6 +27,11 @@ const userSchema = new Schema({
         updatedAt: 'updated_at'
     }
 });
+
+userSchema.statics.isExist = async function(email) {
+    const user = await this.findOne({ email: email });
+    return user ? true : false;
+}
 
 const User = mongoose.model('user', userSchema);;
 
