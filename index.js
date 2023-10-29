@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+//env var config
+require('dotenv').config();
+
 
 const morgan = require('morgan');
 
@@ -11,8 +14,13 @@ const { orderRouter } = require('./routers/order-router');
 const { productRouter } = require('./routers/product-router');
 const { categoryRouter } = require('./routers/category-router');
 
+//Creating Server
+app.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}`));
+
+
 //DB connection
 const createConnection = require('./database/connection');
+const { UPLOAD_FOLDER } = process.env;
 
 createConnection();
 
@@ -31,22 +39,14 @@ apiRouter.use('/products', productRouter);
 apiRouter.use('/orders', orderRouter);
 apiRouter.use('/categories', categoryRouter);
 
-//Creating Server
-app.listen(3000, () => console.log('Listening on port 3000'));
+//serving image (keep it last)
+apiRouter.get("/" + UPLOAD_FOLDER + "/*", (req, res, next) => {
+    const path = req.url;
+    const filePath = `${__dirname}${path}`;
+    res.sendFile(filePath, (err) => {
+        next();
+    });
+});
 
-app.get('/', (req, res) => {
-    res.json({ 'message': "Success" });
-})
 
 app.use(handleErrors);
-
-
-const passwordHash = require('password-hash');
-
-//Password Hash
-// console.log("Inside index.js")
-// const password = "12345";
-// const hashedPassowrd = passwordHash.generate(password);
-// console.log(hashedPassowrd);
-// const isVlaid = passwordHash.verify(password, hashedPassowrd);
-// console.log(isVlaid);

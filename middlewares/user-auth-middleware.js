@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const key = "123";
+const JWT_KEY = process.env.JWT_KEY;
 
 function userAuthMiddleware(req, res, next) {
     try {
@@ -7,7 +7,7 @@ function userAuthMiddleware(req, res, next) {
         token = req.headers.authorization;
         token = token.split(' ')[1];
         console.log(token);
-        const payload = jwt.verify(token, key);
+        const payload = jwt.verify(token, JWT_KEY);
         console.log(payload);
 
         const session = req.session;
@@ -30,7 +30,7 @@ function adminAuthMiddleware(req, res, next) {
         token = req.headers.authorization;
         token = token.split(' ')[1];
         console.log(token);
-        const payload = jwt.verify(token, key);
+        const payload = jwt.verify(token, JWT_KEY);
         console.log(payload);
 
         req.session = {

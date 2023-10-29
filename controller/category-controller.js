@@ -1,10 +1,17 @@
 const { Category } = require("../models/category");
 const joi = require('joi');
+const { Product } = require("../models/product");
 
 async function getCategories(req, res) {
     // res.json({ "message": "CATEGORY API" })
     const categories = await Category.find();
     res.json({ categories });
+}
+
+async function getCategory(req, res) {
+    const _id = req.params.categoryId;
+    const category = await Category.find({ _id: _id });
+    res.json({ category });
 }
 
 async function createCategory(req, res, next) {
@@ -24,4 +31,10 @@ async function createCategory(req, res, next) {
     return next(err);
 }
 
-module.exports = { getCategories, createCategory };
+async function getProductsByCategory(req, res, next) {
+
+    const products = await Product.find({ category: req.params.categoryId }).populate('category');
+    res.json({ products });
+}
+
+module.exports = { getCategories, createCategory, getCategory, getProductsByCategory };
