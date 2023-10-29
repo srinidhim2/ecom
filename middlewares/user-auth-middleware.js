@@ -8,7 +8,7 @@ function userAuthMiddleware(req, res, next) {
         token = token.split(' ')[1];
         console.log(token);
         const payload = jwt.verify(token, JWT_KEY);
-        console.log(payload);
+        // console.log(payload);
 
         const session = req.session;
         req.session = {

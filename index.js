@@ -13,6 +13,7 @@ const { userRouter } = require('./routers/user-router');
 const { orderRouter } = require('./routers/order-router');
 const { productRouter } = require('./routers/product-router');
 const { categoryRouter } = require('./routers/category-router');
+const { cartRouter } = require('./routers/cart-router');
 
 //Creating Server
 app.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}`));
@@ -38,6 +39,7 @@ apiRouter.use('/users', userRouter);
 apiRouter.use('/products', productRouter);
 apiRouter.use('/orders', orderRouter);
 apiRouter.use('/categories', categoryRouter);
+apiRouter.use('/cart', cartRouter);
 
 //serving image (keep it last)
 apiRouter.get("/" + UPLOAD_FOLDER + "/*", (req, res, next) => {

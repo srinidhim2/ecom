@@ -14,6 +14,8 @@ async function getProduct(req, res) {
 }
 
 async function createProduct(req, res, next) {
+    console.log(req.file.filename);
+
     const productImage = UPLOAD_FOLDER + "/" + req.file.filename;
     const validationResult = validateProduct(req.body);
     if (validationResult.error) {
@@ -25,6 +27,7 @@ async function createProduct(req, res, next) {
     });
     const result = await product.save();
     res.json(result);
+    res.end();
 }
 
 async function validateProduct(data) {

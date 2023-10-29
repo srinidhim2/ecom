@@ -3,7 +3,7 @@ const { User } = require('../models/user')
 const joi = require('joi');
 const passwordHash = require('password-hash');
 const jwt = require('jsonwebtoken');
-const key = "123";
+const JWT_KEY = process.env.JWT_KEY;
 const { userAuth } = require('../middlewares/user-auth-middleware');
 
 async function getUsers(req, res, next) {
@@ -67,7 +67,7 @@ function generateJWTtoken(user) {
         isAdmin: user.isAdmin,
         email: user.email
     }
-    return jwt.sign({ payload }, key);
+    return jwt.sign({ payload }, JWT_KEY);
 }
 async function loginUser(req, res, next) {
 

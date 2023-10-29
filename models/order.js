@@ -2,21 +2,29 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
-    price: { type: Number, required: true },
-    product: {
-        type: mongoose.Types.ObjectId,
-        ref: 'product',
-        required: true
-    },
     user: {
         type: mongoose.Types.ObjectId,
-        ref: 'student',
+        ref: 'user',
         required: true
     },
-    address: { type: String, required: true },
-    quantity: { type: Number, required: true },
-    payment_method: { type: String, required: true, default: "COD" },
-    status: { type: Boolean, default: false }
+    cart: {
+        type: mongoose.Types.ObjectId,
+        ref: 'cart',
+        required: true
+    },
+    address: {
+        type: String,
+        required: true
+    },
+    paymentType: {
+        type: String,
+        default: "COD"
+    },
+    status: {
+        type: String,
+
+        default: "NotPaid"
+    }
 }, {
     timestamps: {
         createdAt: 'created_at',
