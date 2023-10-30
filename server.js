@@ -1,8 +1,14 @@
 const express = require('express');
 const handleErrors = require('./middlewares/error-handler');
+const helmet = require('helmet');
+const cors = require('cors');
+
+
 
 const app = express();
-//env var config
+
+app.use(cors());
+
 require('dotenv').config();
 require('express-async-errors');
 
@@ -20,16 +26,28 @@ const { cartRouter } = require('./routers/cart-router');
 //Creating Server
 
 
+
 //DB connection
 const createConnection = require('./database/connection');
 const { UPLOAD_FOLDER } = process.env;
 
-createConnection();
-
+createConnection().then(() => {
+    //MiddleWares
+    app.use(helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: ["'self'"],
+                connectSrc: ["'self'", "http://localhost:3000"],
+            },
+        },
+    }))
+});
 //MiddleWares
 
+app.use(helmet());
 app.use(express.json());
 app.use(morgan('tiny'));
+
 
 //ROUTERS
 
