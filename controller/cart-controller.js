@@ -4,11 +4,12 @@ const JWT_KEY = process.env.JWT_KEY;
 const { Cart } = require('../models/cart');
 const { Product } = require('../models/product');
 const { getUserIdByToken } = require('../middlewares/getIdByToken');
-
+const { User } = require('../models/user')
 
 async function getCart(req, res) {
     const user = getUserIdByToken(req.headers.authorization);
-    const result = await Cart.find({ user: user }).populate('user');
+    console.log(user);
+    const result = await Cart.find({ user: user });
     if (!result) {
         return next(new Error("no cart found"));
     }
@@ -59,4 +60,18 @@ async function addCart(req, res, next) {
     }
 }
 
-module.exports = { getCart, addCart };
+async function deleteCart(req, res, next) {
+    try {
+        const _id = req.params.cartId;
+        const user = getUserIdByToken(req.headers.authorization);
+        const result = await Cart.deleteOne({ _id, user });
+
+        if (result.deletedCount === 0) throw new Error("No such cart in your account");
+        res.json(result);
+    } catch (err) {
+        next(err);
+    }
+}
+
+
+module.exports = { getCart, addCart, deleteCart };

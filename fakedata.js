@@ -1,0 +1,83 @@
+const users = [{
+    "name": "Cullie",
+    "email": "ctrassler0@latimes.com",
+    "phone": "5749434618"
+}, {
+    "name": "Humfrey",
+    "email": "hscading1@facebook.com",
+    "phone": "4286759743"
+}, {
+    "name": "Morgun",
+    "email": "mflewitt2@last.fm",
+    "phone": "6356034194"
+}, {
+    "name": "Emery",
+    "email": "elargent3@aol.com",
+    "phone": "3133840931"
+}, {
+    "name": "Orran",
+    "email": "obremmer4@naver.com",
+    "phone": "3233082256"
+}, {
+    "name": "Brod",
+    "email": "bondricek5@cnbc.com",
+    "phone": "4423362053"
+}, {
+    "name": "Burch",
+    "email": "beastcourt6@soup.io",
+    "phone": "2551862282"
+}, {
+    "name": "Errick",
+    "email": "eblabey7@eventbrite.com",
+    "phone": "6068188818"
+}, {
+    "name": "Penny",
+    "email": "psimeone8@goo.gl",
+    "phone": "9567140024"
+}, {
+    "name": "Earle",
+    "email": "eormerod9@wordpress.org",
+    "phone": "1223628638"
+}, {
+    "name": "Lorrie",
+    "email": "llantuffa@adobe.com",
+    "phone": "8325506217"
+}, {
+    "name": "Maynard",
+    "email": "mbanburyb@ustream.tv",
+    "phone": "1621286132"
+}, {
+    "name": "Michael",
+    "email": "mstaplesc@phoca.cz",
+    "phone": "7487760912"
+}, {
+    "name": "Arv",
+    "email": "aperreed@dmoz.org",
+    "phone": "4531717758"
+}, {
+    "name": "Dur",
+    "email": "ddolphine@last.fm",
+    "phone": "7164915434"
+}, {
+    "name": "Skyler",
+    "email": "slamblef@wufoo.com",
+    "phone": "6906767880"
+}, {
+    "name": "Carolus",
+    "email": "caddicoteg@51.la",
+    "phone": "3128851698"
+}, {
+    "name": "Britt",
+    "email": "bkobpah@addtoany.com",
+    "phone": "9846676496"
+}, {
+    "name": "Wald",
+    "email": "wfreeri@over-blog.com",
+    "phone": "3512486932"
+}, {
+    "name": "Meyer",
+    "email": "mpetracekj@hatena.ne.jp",
+    "phone": "3271560150"
+}]
+
+module.exports = { users };

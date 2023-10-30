@@ -7,8 +7,15 @@ const JWT_KEY = process.env.JWT_KEY;
 const { userAuth } = require('../middlewares/user-auth-middleware');
 
 async function getUsers(req, res, next) {
+    // const limit = Number.parseInt(req.query.pagesize) || 20;
+    // const page = Number.parseInt(req.query.page) || 1;
+    // const skip = limit * (page - 1);
+
+    // const users = await User.find().skip(skip).limit(Number.parseInt(limit));
+    // const count = await User.countDocuments();
+    // res.json({ users, count });
     const users = await User.find();
-    res.json({ users });
+    res.json(users);
 }
 
 function validateUserForReistration(user) {

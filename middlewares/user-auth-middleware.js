@@ -6,7 +6,7 @@ function userAuthMiddleware(req, res, next) {
         let token = null;
         token = req.headers.authorization;
         token = token.split(' ')[1];
-        console.log(token);
+
         const payload = jwt.verify(token, JWT_KEY);
         // console.log(payload);
 
@@ -19,7 +19,7 @@ function userAuthMiddleware(req, res, next) {
     } catch (err) {
 
         res.status(401);
-        return res.json({ "error": "Ivalid token" });
+        return res.json({ "error": "You are not a user" });
     }
 
 }
