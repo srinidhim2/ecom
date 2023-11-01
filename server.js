@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const handleErrors = require('./middlewares/error-handler');
 const helmet = require('helmet');

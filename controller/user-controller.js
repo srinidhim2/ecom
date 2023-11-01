@@ -1,4 +1,5 @@
 const Joi = require('joi');
+require("dotenv").config();
 const { User } = require('../models/user')
 const joi = require('joi');
 const passwordHash = require('password-hash');
