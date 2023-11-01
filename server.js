@@ -1,4 +1,3 @@
-require("dotenv").config();
 const express = require('express');
 const handleErrors = require('./middlewares/error-handler');
 const helmet = require('helmet');
@@ -30,7 +29,7 @@ const { cartRouter } = require('./routers/cart-router');
 
 //DB connection
 const createConnection = require('./database/connection');
-const { UPLOAD_FOLDER } = process.env;
+const UPLOAD_FOLDER = 'media/products/photos';
 
 createConnection().then(() => {
     //MiddleWares
@@ -52,7 +51,10 @@ app.use(morgan('tiny'));
 
 //ROUTERS
 
-
+app.get('/', (req, res) => {
+    console.log("API is in use");
+    res.json({ message: "Welcome to ecomm api" });
+})
 apiRouter.get('', (req, res) => { res.json({ "message": "API is WORKING" }) })
 app.use('/api', apiRouter);
 apiRouter.use('/users', userRouter);

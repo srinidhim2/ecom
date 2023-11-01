@@ -1,10 +1,9 @@
 const Joi = require('joi');
-require("dotenv").config();
 const { User } = require('../models/user')
 const joi = require('joi');
 const passwordHash = require('password-hash');
 const jwt = require('jsonwebtoken');
-const JWT_KEY = process.env.JWT_KEY;
+const JWT_KEY = "Bnm_ou#%";
 const { userAuth } = require('../middlewares/user-auth-middleware');
 
 async function getUsers(req, res, next) {

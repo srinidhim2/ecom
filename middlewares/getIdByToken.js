@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const JWT_KEY = process.env.JWT_KEY;
+const JWT_KEY = "Bnm_ou#%";
 
 function getUserIdByToken(rha) {
     let token = null;
