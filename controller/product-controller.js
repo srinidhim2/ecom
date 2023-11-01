@@ -1,6 +1,6 @@
 const { Product } = require('../models/product');
 const joi = require('joi');
-const UPLOAD_FOLDER = "media/products/photos";
+const { UPLOAD_FOLDER } = process.env;
 
 async function getProducts(req, res) {
     const products = await Product.find();
