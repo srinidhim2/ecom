@@ -16,7 +16,7 @@ const productSchema = new Schema({
         required: true,
         default: 0
     },
-
+    productImage: { type: String, required: true },
     category: { type: mongoose.Types.ObjectId, ref: 'category', required: true },
     active: { type: Boolean, default: true }
 }, {

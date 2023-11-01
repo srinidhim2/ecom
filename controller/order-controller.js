@@ -1,6 +1,6 @@
 const joi = require('joi');
 const jwt = require('jsonwebtoken');
-const JWT_KEY = "Bnm_ou#%";
+const JWT_KEY = process.env.JWT_KEY;
 const { Order } = require('../models/order');
 const { Product } = require("../models/product");
 const { getUserIdByToken } = require('../middlewares/getIdByToken');
