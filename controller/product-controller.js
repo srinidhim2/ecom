@@ -1,6 +1,6 @@
 const { Product } = require('../models/product');
 const joi = require('joi');
-const { UPLOAD_FOLDER } = process.env;
+const UPLOAD_FOLDER = 'media/products/photos';
 
 async function getProducts(req, res) {
     const products = await Product.find();
@@ -14,16 +14,15 @@ async function getProduct(req, res) {
 }
 
 async function createProduct(req, res, next) {
-    console.log(req.file.filename);
+    // console.log(req.file.filename);
 
-    const productImage = UPLOAD_FOLDER + "/" + req.file.filename;
+    // const productImage = UPLOAD_FOLDER + "/" + req.file.filename;
     const validationResult = validateProduct(req.body);
     if (validationResult.error) {
         return next(new Error(validationResult.error.details[0].message))
     }
     let product = new Product({
-        ...(await validationResult).value,
-        productImage
+        ...(await validationResult).value
     });
     const result = await product.save();
     res.json(result);

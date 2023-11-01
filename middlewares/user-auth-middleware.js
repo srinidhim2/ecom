@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
-require("dotenv").config();
-const JWT_KEY = process.env.JWT_KEY;
+const JWT_KEY = "Bnm_ou#%";
 
 function userAuthMiddleware(req, res, next) {
     try {

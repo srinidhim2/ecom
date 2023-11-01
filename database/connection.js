@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const DB_URL = process.env.DB_URL;
+const DB_URL = 'mongodb+srv://admin:adminadmin@ecom.d8tmrio.mongodb.net/?retryWrites=true&w=majority';
 
 async function createConnection() {
     try {

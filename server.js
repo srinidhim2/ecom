@@ -1,16 +1,14 @@
-require("dotenv").config();
 const express = require('express');
 const handleErrors = require('./middlewares/error-handler');
 const helmet = require('helmet');
 const cors = require('cors');
-
+require('dotenv').config();
 
 
 const app = express();
 
 app.use(cors());
 
-require('dotenv').config();
 require('express-async-errors');
 
 const morgan = require('morgan');
@@ -30,7 +28,7 @@ const { cartRouter } = require('./routers/cart-router');
 
 //DB connection
 const createConnection = require('./database/connection');
-const { UPLOAD_FOLDER } = process.env;
+const UPLOAD_FOLDER = 'media/products/uploads';
 
 createConnection().then(() => {
     //MiddleWares
