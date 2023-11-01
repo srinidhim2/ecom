@@ -4,7 +4,7 @@ const { UPLOAD_FOLDER } = process.env;
 
 async function getProducts(req, res) {
     const products = await Product.find();
-    res.json(products);
+    res.send(products);
 }
 
 async function getProduct(req, res) {
