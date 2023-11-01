@@ -50,7 +50,13 @@ app.use(morgan('tiny'));
 
 //ROUTERS
 
-
+app.get('/', (req, res) => {
+    console.log("API is in use");
+    res.json({ message: "Welcome to Ecom Api" });
+})
+apiRouter.get('/', (req, res) => {
+    res.json({ message: 'Welcom to Ecom API' });
+})
 apiRouter.get('', (req, res) => { res.json({ "message": "API is WORKING" }) })
 app.use('/api', apiRouter);
 apiRouter.use('/users', userRouter);
