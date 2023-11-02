@@ -34,7 +34,7 @@ The APIs are:
 - getOrderByUserId : GET `{{baseUrl}}/orders/:id/orders`
 - deleteOrders : DELETE `{{baseUrl}}/orders/:id`
 
-Note: admin username and password are : `a1@email.com` and `12345`
+Note: admin username and password are : `a1@email.com` and `12345` and notice that it may take a little bit of time for first API use as the application takes time to get back online in case of inactivity
 
 ## Steps to run the application locally
 
